@@ -8,6 +8,11 @@
     <!-- favicon link -->
     <link rel="shortcut icon" href="./assets/logo/favicon.png" type="image/x-icon">
 
+    <!-- font awesome icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- stylesheet link  -->
     <link rel="stylesheet" href="./css/style.css">
     <title>Pasta Maniac</title>
@@ -33,18 +38,64 @@
         </nav>
     </header>
     <main>
-        <img src="./assets/images/hero/hero.png" alt="hero image" class="hero-image">
-        <section class="hero-content">
-            <p class="cursive first-line">Life is a combination of</p>
-            <h1 class="tag-line">MAGIC <span>&</span> PASTA</h1>
-            <p class="hero-description">At Pasta Maniac, we serve passion on a plate. Made with the finest ingredients
-                and a whole lot of love.
-            </p>
-            <button class="btn">Explore menu</button>
-            <button class="btn hero-reserve-btn">Reserve a table</button>
+
+        <section class="hero-section">
+            <img src="./assets/images/hero/hero.png" alt="hero image" class="hero-image">
+            <div class="hero-content">
+                <p class="cursive first-line">Life is a combination of</p>
+                <h1 class="tag-line">MAGIC <span>&</span> PASTA</h1>
+                <p class="hero-description">At Pasta Maniac, we serve passion on a plate. Made with the finest
+                    ingredients
+                    and a whole lot of love.
+                </p>
+                <button class="btn">Explore menu</button>
+                <button class="btn hero-reserve-btn">Reserve a table</button>
+            </div>
+        </section>
+        <section class="story-section">
+            <div class="story-container">
+                <div class="story-image-box">
+                    <img src="./assets/images/dishes/story.jpg" alt="story image" id="story-image">
+                </div>
+                <div class="story-content">
+                    <p class="story-head">Our Story</p>
+                    <h1 class="story-tagline">Made With Passion. <br> Served With <span>Love.</span></h1>
+                    <p class="story-para">Pasta Maniac was born out of a love for authentic italian flavors and a desire
+                        to create
+                        memorable dining experiences. Every dish we serve is crafted with fresh ingridients, bold
+                        flavors, and a touch of magic.</p>
+                    <button class="btn">Know more</button>
+                </div>
+            </div>
+            <div class="best-sellers">
+                <div class="best-sellers-top">
+                    <div class="best-sellers-head">
+                        <p>Main Highlights</p>
+                        <h1>Bestsellers</h1>
+                    </div>
+                    <div class="navigator-buttons">
+                        <span class="nav-btn" id="prev-btn"><i class="fa-solid fa-arrow-left"
+                                style="color: #d98c1f;"></i></span>
+                        <span class="nav-btn" id="next-btn"><i class="fa-solid fa-arrow-right"
+                                style="color: #d98c1f;"></i></span>
+                    </div>
+                </div>
+                <div class="best-sellers-menu">
+                    <div class="slider-container">
+                        <div class="slider" id="slider"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu">
+            <p class="cursive">Explore Our Menu</p>
+            <h3>A BOWL FULL OF HAPPINESS</h3>
         </section>
     </main>
+
     <footer></footer>
+    <script src="./js/main.js"></script>
+    <script src="./js/slider.js"></script>
 </body>
 
 </html>
