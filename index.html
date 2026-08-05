@@ -15,6 +15,7 @@
 
     <!-- stylesheet link  -->
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     <title>Pasta Maniac</title>
 </head>
 
@@ -43,7 +44,9 @@
             <img src="./assets/images/hero/hero.png" alt="hero image" class="hero-image">
             <div class="hero-content">
                 <p class="cursive first-line">Life is a combination of</p>
-                <h1 class="tag-line">MAGIC <span>&</span> PASTA</h1>
+                <h1 class="tag-line">MAGIC <span id="pendulum"><img class="pendulum"
+                            src="./assets/images/hero/pendulum.png" alt="pendulum"></span>
+                    PASTA</h1>
                 <p class="hero-description">At Pasta Maniac, we serve passion on a plate. Made with the finest
                     ingredients
                     and a whole lot of love.
@@ -87,13 +90,120 @@
                 </div>
             </div>
         </section>
-        <section class="menu">
-            <p class="cursive">Explore Our Menu</p>
-            <h3>A BOWL FULL OF HAPPINESS</h3>
+        <section class="menu-section">
+            <div class="header">
+                <p class="cursive">Explore Our Menu</p>
+                <h1>A BOWL FULL OF HAPPINESS</h1>
+            </div>
+            <div class="short-menu">
+                <div id="menu-item"></div>
+                <a href="#" id="explore-f-menu" class="btn">Explore Full Menu</a>
+            </div>
+        </section>
+        <section class="special-offer-section">
+            <div class="header">
+                <p class="cursive">You are the lucky one</p>
+                <h1>SPECIAL OFFER</h1>
+            </div>
+            <div class="special-offer-card">
+                <div class="offer-details">
+                    <h1 class="heading">delicious pasta,<br><span>delivered</span> to you</h1>
+                    <p>Craving Pasta ? We've got you covered , fast delivery, Hot & Fresh</p>
+                    <button class="btn">Order Now</button>
+                </div>
+                <div class="offer-dish">
+                    <img src="./assets/images/dishes/special_offer.png" id="special-offer-dish" alt="Special Offer">
+                </div>
+            </div>
+        </section>
+        <section class="review-section">
+            <div class="review-heading">
+                <p class="cursive">Loved by guests</p>
+                <h2>Every review feels like a warm welcome</h2>
+            </div>
+            <div class="review-grid">
+                <article class="review-card review-card-main">
+                    <div class="review-stars">★★★★★</div>
+                    <p>“The flavors were bold, the service felt personal, and every detail looked beautifully thought
+                        out.”</p>
+                    <div class="review-user">
+                        <div class="review-avatar">AM</div>
+                        <div>
+                            <h3>Alicia M.</h3>
+                            <span>Food Creator</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>“A cozy place with pasta that feels made with heart. We stayed longer than planned.”</p>
+                    <div class="review-user">
+                        <div class="review-avatar">RG</div>
+                        <div>
+                            <h3>Ravi G.</h3>
+                            <span>Regular Guest</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>“Elegant, warm, and unforgettable. It feels like a hidden gem in the city.”</p>
+                    <div class="review-user">
+                        <div class="review-avatar">SV</div>
+                        <div>
+                            <h3>Sara V.</h3>
+                            <span>Weekend Visitor</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
-    <footer></footer>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./assets/logo/logo.png" alt="Pasta Maniac Logo" class="footer-logo">
+                <p>Fresh pasta, cozy evenings, and flavors that linger long after the last bite.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Reservations</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Visit Us</h3>
+                <p>45 Pasta Lane<br>Downtown City<br>Open daily from 11 AM</p>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+911234567890">+91 12345 67890</a></li>
+                    <li><a href="mailto:hello@pastamaniac.com">hello@pastamaniac.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Hours</h3>
+                <ul>
+                    <li>Mon - Thu: 11:00 - 22:00</li>
+                    <li>Fri - Sat: 11:00 - 23:30</li>
+                    <li>Sunday: 12:00 - 21:00</li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-copy">© 2026 Pasta Maniac. Crafted with love.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/slider.js"></script>
 </body>

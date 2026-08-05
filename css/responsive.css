@@ -1,0 +1,260 @@
+/* Responsive styles for Pasta Maniac */
+
+@media (max-width: 1200px) {
+  .hero-content {
+    padding-left: 60px;
+    padding-right: 20px;
+  }
+
+  .hero-description {
+    padding-right: 25%;
+  }
+
+  .story-container {
+    margin: 80px 40px;
+  }
+
+  .story-content {
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 20px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-section {
+    align-items: flex-end;
+    padding: 120px 0 60px;
+  }
+
+  .hero-content {
+    padding-left: 30px;
+    padding-right: 20px;
+    max-width: 680px;
+  }
+
+  .tag-line {
+    font-size: 84px;
+  }
+
+  .first-line {
+    font-size: 32px;
+  }
+
+  .hero-description {
+    padding-right: 0;
+  }
+
+  .story-container {
+    flex-direction: column;
+    margin: 60px 24px;
+    text-align: center;
+  }
+
+  .story-content {
+    margin-left: 0;
+    padding-right: 0;
+  }
+
+  .story-image-box {
+    margin-bottom: 24px;
+  }
+
+  .best-sellers-top {
+    padding: 0 30px;
+  }
+
+  .best-sellers-menu {
+    margin: 0 30px;
+  }
+
+  .slide {
+    flex-basis: calc(50% - 9px);
+  }
+
+  .short-menu #menu-item {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .menu-section {
+    padding: 30px 20px 70px;
+  }
+
+  .special-offer-card {
+    height: auto;
+    flex-direction: column;
+    padding: 24px 0;
+  }
+
+  .special-offer-card div {
+    width: 100%;
+    height: auto;
+  }
+
+  .offer-details {
+    padding: 2rem 2rem 0;
+    text-align: center;
+  }
+
+  .offer-dish {
+    padding: 0 1rem 1rem;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card-main {
+    grid-row: auto;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  nav {
+    padding: 12px 16px;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-links a {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .nav-reserve-btn {
+    display: none;
+  }
+
+  .hero-section {
+    padding: 110px 0 40px;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  .first-line {
+    font-size: 24px;
+  }
+
+  .tag-line {
+    font-size: 54px;
+    flex-wrap: wrap;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    padding-right: 0;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 8px 0 0;
+  }
+
+  .hero-reserve-btn {
+    margin-top: 8px;
+  }
+
+  .story-container {
+    margin: 50px 16px;
+  }
+
+  #story-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .story-tagline {
+    font-size: 1.8rem;
+  }
+
+  .best-sellers-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 0 16px;
+  }
+
+  .best-sellers-menu {
+    margin: 0 16px;
+  }
+
+  .slide {
+    flex-basis: 100%;
+  }
+
+  .menu-section {
+    margin: 70px 0;
+    padding: 24px 16px 60px;
+  }
+
+  .short-menu #menu-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .header p {
+    font-size: 26px;
+  }
+
+  .header h1 {
+    font-size: 1.6rem;
+  }
+
+  #menu-item .slide-details {
+    padding: 12px 14px;
+  }
+
+  .special-offer-section {
+    padding: 20px 0 32px;
+  }
+
+  .offer-details {
+    padding: 1.25rem 1rem 0;
+  }
+
+  .offer-details h1 {
+    font-size: 1.8rem;
+  }
+
+  .review-section {
+    padding: 56px 16px 72px;
+  }
+
+  .review-card {
+    padding: 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    padding: 36px 16px 20px;
+  }
+}
