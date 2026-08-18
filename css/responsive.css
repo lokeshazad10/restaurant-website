@@ -1,24 +1,5 @@
 /* Responsive styles for Pasta Maniac */
 
-@media (max-width: 1200px) {
-  .hero-content {
-    padding-left: 60px;
-    padding-right: 20px;
-  }
-
-  .hero-description {
-    padding-right: 25%;
-  }
-
-  .story-container {
-    margin: 80px 40px;
-  }
-
-  .story-content {
-    padding-right: 40px;
-  }
-}
-
 @media (max-width: 900px) {
   nav {
     flex-wrap: wrap;

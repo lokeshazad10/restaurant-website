@@ -48,6 +48,21 @@ const sliderContainer = document.getElementById("slider");
 const menuItemContainer = document.getElementById("menu-item");
 const fMenuBtn = document.getElementById("explore-f-menu");
 
+//navbar blurr effect on scroll
+const navbar = document.getElementById("navbar");
+const navLink = document.getElementById("nav-links");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add("blurred");
+    navLink.classList.add("nav-link-bg");
+    navbar.style.justifyContent = "center";
+  } else {
+    navbar.classList.remove("blurred");
+    navLink.classList.remove("nav-link-bg");
+    navbar.style.justifyContent = "space-between";
+  }
+});
+
 function renderMenuCards() {
   menuItemContainer.innerHTML = shortMenu
     .map(
@@ -65,8 +80,6 @@ function renderMenuCards() {
     `,
     )
     .join("");
-
-  initGsap();
 }
 
 if (sliderContainer) {
@@ -85,59 +98,6 @@ if (sliderContainer) {
     .join("");
 }
 
-//short menu scroll based animation using GSAP
-function initGsap() {
-  gsap.registerPlugin(ScrollTrigger);
-
-  const menuCards = document.querySelectorAll("#menu-item .menu-card");
-
-  if (!menuCards.length) return;
-
-  gsap.set(menuCards, {
-    opacity: 0,
-    y: 24,
-    scale: 0.98,
-  });
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".menu-section",
-      start: "top 78%",
-      // toggleActions: "play none none reverse",
-    },
-  });
-
-  tl.to(menuCards, {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    duration: 0.7,
-    stagger: 0.08,
-    ease: "power2.out",
-  }).to(
-    fMenuBtn,
-    {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 0.6,
-      ease: "power2.out",
-    },
-    "-=0.25",
-  );
-
-  menuCards.forEach((card) => {
-    gsap.to(card, {
-      y: "-=4",
-      duration: 1.6,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-      overwrite: "auto",
-    });
-  });
-}
-
 function initReviewAnimations() {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -153,6 +113,44 @@ function initReviewAnimations() {
       trigger: ".review-section",
       start: "top 80%",
       toggleActions: "play none none reverse",
+    },
+  });
+
+  //tag line text hide animation on scroll
+  gsap.to(".tag-line", {
+    y: 100,
+    opacity: 0,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".text-section",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+      markers: false,
+    },
+  });
+  gsap.to(".first-line", {
+    y: 100,
+    opacity: 0,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".text-section",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+      markers: false,
+    },
+  });
+  gsap.to(".hero-description", {
+    y: 100,
+    opacity: 0,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".text-section",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+      markers: false,
     },
   });
 
@@ -186,25 +184,10 @@ function initReviewAnimations() {
 // function animateNav(){
 // }
 gsap.from("nav .nav-links li", {
-  x: -100,
-  y: -100,
-  rotate: 360,
+  scale: 0,
   duration: 0.8,
-  stagger: 0.2,
+  stagger: 0.1,
 });
-
-//pendulum animation
-// let angle = 0;
-// let time = 0;
-
-// gsap.ticker.add(() => {
-//   time += 0.05;
-//   const rotation = angle + Math.sin(time);
-//   gsap.set(".pendulum", {
-//     rotation,
-//     transformOrigin: "50% 0%",
-//   });
-// });
 gsap.fromTo(
   ".pendulum",
   {
@@ -230,4 +213,3 @@ document.addEventListener("DOMContentLoaded", () => {
   renderMenuCards();
   initReviewAnimations();
 });
-// document.addEventListener("DOMContentLoaded", animateNav());
