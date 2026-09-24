@@ -1,5 +1,51 @@
 /* Responsive styles for Pasta Maniac */
 
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.nav-toggle {
+  display: none;
+  border: 1px solid rgba(244, 178, 35, 0.55);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--primary-CTA);
+  width: 42px;
+  height: 42px;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  nav {
+    padding-inline: 32px;
+  }
+
+  .tag-line {
+    font-size: clamp(4.5rem, 11vw, 7.5rem);
+  }
+
+  .tag-line span {
+    font-size: inherit;
+  }
+
+  .story-container {
+    margin-inline: clamp(24px, 7vw, 100px);
+  }
+
+  .story-content {
+    padding-right: 0;
+  }
+
+  .offer-details {
+    padding-inline: clamp(2rem, 6vw, 8rem);
+  }
+}
+
 @media (max-width: 900px) {
   nav {
     flex-wrap: wrap;
@@ -23,6 +69,7 @@
     padding-left: 30px;
     padding-right: 20px;
     max-width: 680px;
+    width: 100%;
   }
 
   .tag-line {
@@ -114,10 +161,51 @@
 
   nav {
     padding: 12px 16px;
+    flex-wrap: nowrap;
+  }
+
+  #nav-logo {
+    width: 84px;
+  }
+
+  .nav-toggle {
+    display: block;
+    margin-left: auto;
   }
 
   .nav-links {
-    gap: 8px;
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 10px;
+    border: 1px solid rgba(244, 178, 35, 0.25);
+    background: rgba(11, 11, 13, 0.96);
+    backdrop-filter: blur(14px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+  }
+
+  [data-theme="light"] .nav-links {
+    background: rgba(250, 247, 242, 0.96);
+  }
+
+  nav.menu-open .nav-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 10px 12px;
   }
 
   .nav-links a {
@@ -138,17 +226,31 @@
   }
 
   .first-line {
-    font-size: 24px;
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
   }
 
   .tag-line {
-    font-size: 54px;
+    width: 100%;
+    font-size: clamp(3rem, 15vw, 5rem);
     flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .tag-line span {
+    height: 0.8em;
+    width: 0.8em;
+  }
+
+  #pendulum img {
+    width: 130px;
+    height: 130px;
   }
 
   .hero-description {
     font-size: 0.95rem;
     padding-right: 0;
+    text-align: center;
+    line-height: 1.45;
   }
 
   .btn {
@@ -171,7 +273,11 @@
   }
 
   .story-tagline {
-    font-size: 1.8rem;
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+
+  .story-para {
+    line-height: 1.7;
   }
 
   .best-sellers-top {
@@ -204,7 +310,7 @@
   }
 
   .header h1 {
-    font-size: 1.6rem;
+    font-size: clamp(1.5rem, 7vw, 2rem);
   }
 
   #menu-item .slide-details {
@@ -220,7 +326,11 @@
   }
 
   .offer-details h1 {
-    font-size: 1.8rem;
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+  }
+
+  #special-offer-dish {
+    width: min(90%, 320px);
   }
 
   .review-section {
@@ -237,5 +347,252 @@
 
   .site-footer {
     padding: 36px 16px 20px;
+  }
+
+  .footer-copy {
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* ============================================================
+   Extra responsive hardening — all device sizes
+   ============================================================ */
+
+/* anchor smooth-scroll lands clear of the fixed navbar */
+html {
+  scroll-padding-top: 96px;
+}
+.menu-section,
+.story-section {
+  scroll-margin-top: 96px;
+}
+
+/* ----- large + ultra-wide screens ----- */
+@media (min-width: 1500px) {
+  .tag-line {
+    font-size: clamp(8rem, 10vw, 12rem);
+  }
+  .hero-content {
+    max-width: 1480px;
+    margin-inline: auto;
+  }
+  .hero-description {
+    font-size: 1.05rem;
+  }
+  .stats-bar {
+    max-width: 1250px;
+  }
+  .best-sellers-top {
+    padding-inline: clamp(24px, 8vw, 100px);
+  }
+}
+
+/* ----- tablets / narrow laptops (<= 900px) ----- */
+@media (max-width: 900px) {
+  /* stop forced full-height gaps on mid-length sections */
+  section:not(.hero-section) {
+    height: auto;
+  }
+
+  /* scale the pendulum + fluid hero type in the tablet band */
+  #pendulum img {
+    width: 150px;
+    height: 150px;
+  }
+  .first-line {
+    font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  }
+  .tag-line {
+    font-size: clamp(3rem, 11.5vw, 5.2rem);
+    line-height: 1.05;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .tag-line span {
+    height: 0.72em;
+    width: 0.72em;
+  }
+
+  /* stats become a tidy 2 x 2 grid */
+  .stats-bar {
+    max-width: 620px;
+    gap: 26px 34px;
+  }
+  .stat {
+    flex: 1 1 40%;
+    min-width: 110px;
+  }
+
+  .special-offer-card {
+    border-radius: 1.25rem;
+  }
+}
+
+/* ----- landscape phones / short viewports ----- */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+    padding: 96px 0 70px;
+  }
+  .hero-badge {
+    margin-bottom: 10px;
+  }
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ----- small phones (<= 480px) ----- */
+@media (max-width: 480px) {
+  .hero-badge {
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    padding: 7px 13px;
+    gap: 7px;
+  }
+  .first-line {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+  .tag-line {
+    font-size: clamp(2.5rem, 14vw, 3.6rem);
+  }
+  .tag-line span {
+    height: 0.7em;
+    width: 0.7em;
+  }
+  #pendulum img {
+    width: 96px;
+    height: 96px;
+  }
+  .hero-description {
+    font-size: 0.86rem;
+    padding: 10px 16px;
+  }
+
+  .menu-section {
+    padding: 24px 14px 60px;
+  }
+  .short-menu #menu-item {
+    gap: 14px;
+  }
+  #menu-item .slide-details {
+    padding: 12px 12px;
+  }
+
+  .offer-details h1 {
+    font-size: clamp(1.6rem, 8.5vw, 2rem);
+  }
+  .offer-details p {
+    font-size: 0.92rem;
+  }
+  #special-offer-dish {
+    width: min(82%, 270px);
+  }
+
+  .review-section {
+    padding: 48px 14px 64px;
+  }
+  .review-card {
+    padding: 18px;
+  }
+
+  .footer-newsletter {
+    padding: 24px 18px;
+  }
+  .newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .newsletter-form .btn {
+    width: 100%;
+  }
+  .footer-content {
+    gap: 28px;
+  }
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+  }
+  .toast {
+    width: max-content;
+    max-width: calc(100vw - 40px);
+    text-align: center;
+    font-size: 0.82rem;
+    padding: 11px 20px;
+  }
+}
+
+/* ----- tiny phones (<= 380px) ----- */
+@media (max-width: 380px) {
+  nav {
+    padding: 10px 12px;
+  }
+  #nav-logo {
+    width: 72px;
+  }
+  .nav-toggle,
+  .theme-toggle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .tag-line {
+    font-size: clamp(2rem, 15.5vw, 2.8rem);
+  }
+  .tag-line span {
+    height: 0.65em;
+    width: 0.65em;
+  }
+  #pendulum img {
+    width: 80px;
+    height: 80px;
+  }
+  .first-line {
+    font-size: 1.35rem;
+  }
+  .hero-badge {
+    letter-spacing: 0.08em;
+    font-size: 0.52rem;
+  }
+
+  .story-container {
+    margin: 40px 12px;
+  }
+  .stats-bar {
+    margin: 36px auto 56px;
+    padding: 22px 12px;
+  }
+  .stat {
+    min-width: 96px;
+  }
+  .stat-num {
+    font-size: 2.1rem;
+  }
+  .stat-label {
+    font-size: 0.62rem;
+  }
+
+  .best-sellers-top {
+    padding: 0 12px;
+  }
+  .best-sellers-menu {
+    margin: 0 12px;
+  }
+  .btn {
+    padding: 11px 18px;
+  }
+  .footer-copy {
+    font-size: 0.7rem;
   }
 }

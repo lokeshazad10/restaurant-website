@@ -8,6 +8,13 @@
     <!-- favicon link -->
     <link rel="shortcut icon" href="./assets/logo/favicon.png" type="image/x-icon">
 
+    <!-- premium web fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
     <!-- font awesome icons  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
@@ -15,12 +22,31 @@
 
     <!-- stylesheet link  -->
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/premium.css">
     <link rel="stylesheet" href="./css/responsive.css">
     <link rel="stylesheet" href="./css/loader.css">
+
+    <!-- theme toggle (early to avoid flash of wrong theme) -->
+    <script src="./js/theme.js"></script>
+
     <title>Pasta Maniac</title>
 </head>
 
 <body>
+    <!-- cinematic grain overlay -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- scroll progress -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- toast -->
+    <div class="toast" id="toast" role="status" aria-live="polite">Welcome to the table. Enjoy your meal!</div>
+
+    <!-- back to top -->
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
     <!-- loader -->
     <div class="loader">
         <span class="l">
@@ -86,6 +112,9 @@
         <div class="logo">
             <img src="./assets/logo/logo.png" alt="Pasta Maniac Logo" id="nav-logo">
         </div>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
         <ul class="nav-links" id="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">Menu</a></li>
@@ -94,6 +123,9 @@
             <li><a href="#">Blog</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
         <div class="nav-reserve-btn">
             <button class="btn">Reserve a Table</button>
         </div>
@@ -105,24 +137,60 @@
                 <video class="background-video" autoplay muted loop playsinline preload="metadata">
                     <source src="./assets/videos/pasta_making.mp4" type="video/mp4">
                 </video>
+                <!-- cinematic scrim -->
+                <div class="hero-overlay"></div>
+                <span class="hero-badge"><i class="fa-solid fa-utensils" aria-hidden="true"></i>Authentic
+                    Italian · Since 2016</span>
                 <p class="cursive first-line">Life is a combination of</p>
                 <h1 class="tag-line">MAGIC <span id="pendulum"><img class="pendulum"
                             src="./assets/images/hero/pendulum.png" alt="pendulum"></span>
-                    PASTA</h1>
-                <p class="hero-description">At Pasta Maniac, we serve passion on a plate. Made with the finest
-                    ingredients
-                    and a whole lot of love.
+                    <em class="gold-text">PASTA</em></h1>
+                <p class="hero-description">At Pasta Maniac, we serve <span class="gold">passion</span> on a plate.
+                    Made with the finest ingredients and a whole lot of <span class="gold">love</span>.
                 </p>
                 <div class="hero-btn-box">
-                    <button class="btn">Explore menu</button>
+                    <button class="btn" data-scroll-to="#menu">Explore menu</button>
                     <button class="btn hero-reserve-btn">Reserve a table</button>
                 </div>
+                <a href="#story" class="scroll-indicator" aria-label="Scroll to explore">
+                    <span class="mouse"><span class="wheel"></span></span>
+                    <span>Scroll</span>
+                </a>
             </div>
         </section>
-        <section class="story-section">
-            <div class="story-container">
+
+        <!-- marquee -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Fresh Pasta</span><i class="fa-solid fa-star"></i>
+                <span>Handmade Sauces</span><i class="fa-solid fa-star"></i>
+                <span>Wood-Fired Perfection</span><i class="fa-solid fa-star"></i>
+                <span>Authentic Italiano</span><i class="fa-solid fa-star"></i>
+                <span>Fresh Pasta</span><i class="fa-solid fa-star"></i>
+                <span>Handmade Sauces</span><i class="fa-solid fa-star"></i>
+                <span>Wood-Fired Perfection</span><i class="fa-solid fa-star"></i>
+                <span>Authentic Italiano</span><i class="fa-solid fa-star"></i>
+            </div>
+        </div>
+
+        <section class="story-section" id="story">
+            <div class="story-container reveal">
                 <div class="story-image-box">
-                    <img src="./assets/images/dishes/story.jpg" alt="story image" id="story-image">
+                    <div class="story-frame">
+                        <img src="./assets/images/dishes/story.jpg" alt="story image" id="story-image">
+                        <!-- rotating badge -->
+                        <div class="story-badge-ring" aria-hidden="true">
+                            <svg viewBox="0 0 100 100">
+                                <defs>
+                                    <path id="ringPath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                                </defs>
+                                <text>
+                                    <textPath href="#ringPath">FRESH PASTA · MADE WITH PASSION · SINCE 2016 ·</textPath>
+                                </text>
+                            </svg>
+                            <span class="ring-icon"><i class="fa-solid fa-utensils"></i></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="story-content">
                     <p class="story-head">Our Story</p>
@@ -131,11 +199,30 @@
                         to create
                         memorable dining experiences. Every dish we serve is crafted with fresh ingridients, bold
                         flavors, and a touch of magic.</p>
-                    <button class="btn">Know more</button>
+                    <button class="btn" data-scroll-to="#menu">Know more</button>
+                </div>
+            </div>
+            <!-- stats -->
+            <div class="stats-bar reveal" style="--d: .1s">
+                <div class="stat">
+                    <span class="stat-num" data-count="18" data-suffix="+">0</span>
+                    <span class="stat-label">Years of Craft</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num" data-count="120" data-suffix="+">0</span>
+                    <span class="stat-label">Signature Dishes</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num" data-count="50" data-suffix="K+">0</span>
+                    <span class="stat-label">Happy Guests</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num" data-count="4">0</span>
+                    <span class="stat-label">Chef's Awards</span>
                 </div>
             </div>
             <div class="best-sellers">
-                <div class="best-sellers-top">
+                <div class="best-sellers-top reveal">
                     <div class="best-sellers-head">
                         <p>Main Highlights</p>
                         <h1>Bestsellers</h1>
@@ -154,8 +241,8 @@
                 </div>
             </div>
         </section>
-        <section class="menu-section">
-            <div class="header">
+        <section class="menu-section animate-in" id="menu">
+            <div class="header reveal">
                 <p class="cursive">Explore Our Menu</p>
                 <h1>A BOWL FULL OF HAPPINESS</h1>
             </div>
@@ -165,11 +252,11 @@
             </div>
         </section>
         <section class="special-offer-section">
-            <div class="header">
+            <div class="header reveal">
                 <p class="cursive">You are the lucky one</p>
                 <h1>SPECIAL OFFER</h1>
             </div>
-            <div class="special-offer-card">
+            <div class="special-offer-card reveal" style="--d: .1s">
                 <div class="offer-details">
                     <h1 class="heading">delicious pasta,<br><span>delivered</span> to you</h1>
                     <p>Craving Pasta ? We've got you covered , fast delivery, Hot & Fresh</p>
@@ -225,7 +312,17 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-content">
+        <div class="footer-newsletter reveal">
+            <div class="newsletter-copy">
+                <p class="cursive">Join the inner circle</p>
+                <h3>Secret menu drops & recipes</h3>
+            </div>
+            <form class="newsletter-form" id="newsletter-form" novalidate>
+                <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required>
+                <button class="btn" type="submit">Subscribe</button>
+            </form>
+        </div>
+        <div class="footer-content reveal" style="--d: .1s">
             <div class="footer-brand">
                 <img src="./assets/logo/logo.png" alt="Pasta Maniac Logo" class="footer-logo">
                 <p>Fresh pasta, cozy evenings, and flavors that linger long after the last bite.</p>
@@ -271,6 +368,7 @@
     <script src="./js/main.js"></script>
     <script src="./js/loader.js"></script>
     <script src="./js/slider.js"></script>
+    <script src="./js/enhance.js"></script>
 </body>
 
 </html>

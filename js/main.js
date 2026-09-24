@@ -51,6 +51,31 @@ const fMenuBtn = document.getElementById("explore-f-menu");
 //navbar blurr effect on scroll
 const navbar = document.getElementById("navbar");
 const navLink = document.getElementById("nav-links");
+const navToggle = document.getElementById("nav-toggle");
+
+if (navToggle) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = navbar.classList.toggle("menu-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation menu" : "Open navigation menu",
+    );
+    navToggle.querySelector("i").className = isOpen
+      ? "fa-solid fa-xmark"
+      : "fa-solid fa-bars";
+  });
+
+  navLink.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navbar.classList.remove("menu-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Open navigation menu");
+      navToggle.querySelector("i").className = "fa-solid fa-bars";
+    });
+  });
+}
+
 window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
     navbar.classList.add("blurred");
@@ -67,7 +92,7 @@ function renderMenuCards() {
   menuItemContainer.innerHTML = shortMenu
     .map(
       ({ image, name, price }, index) => `
-    <div class="menu-card card-${index + 1}">
+    <div class="menu-card" style="--i: ${index}">
           <img src="${image}" alt="${name}">
           <div class="slide-details">
             <div>
